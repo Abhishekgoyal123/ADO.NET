@@ -36,6 +36,7 @@ namespace CS_SimpleDataAccess
 
                 product_list.Add(Reader["ProductName"].ToString());
                 product_list.Add(Reader["CategoryName"].ToString());
+
                 
                 //product_list.Add(new Product()
                 //{
