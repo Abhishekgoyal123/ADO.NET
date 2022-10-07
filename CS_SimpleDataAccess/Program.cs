@@ -15,16 +15,20 @@ try
 
     //var categories = categoryDbAccess.GetRecords();
     Report report = new Report();
-    var res=report.GetProduct();
-    for(int i=0;i<res.Count;i+=2)
+    var res=report.SearchProduct();
+    for(int i=0;i<res.Count;i+=3)
     {
         Console.Write(res[i]+"  ");
-        Console.WriteLine(res[i + 1]);
+        Console.Write(res[i + 1] + "  ");
+        Console.Write(res[i + 2]);
+        Console.WriteLine();
 
-    }   
+    }
     //PrintData(categories);
 
+    IDbAccess<ProductDbAccess, int> dbAccess = new CategoryDbAccess();
 
+    dbAccess.GetAll();
 }
 
 catch (Exception ex)
@@ -44,10 +48,6 @@ static void PrintData(IEnumerable<Category> categories)
 }
 
 
-    //static void CategoryDbAccess()
-    //{
-    //SqlConnection conn;
-    //    conn = new SqlConnection("Data Source =.; Initial Catalog = eShoppingCodi; Integrated Security =SSPI");
-    //}
+    
 
  
