@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CS_SimpleDataAccess;
+using CS_SimpleDataAccess.Models;
+using CS_SimpleDataAccess.DataAccess;
+
+
+namespace CS_SimpleDataAccess
+{
+   public class Gateway
+    {
+        public virtual void GatewayMethod(IDbAccess<Product, int> dbAccess)
+        {
+            
+        }
+
+        public override void GatewayMethod(IDbAccess<Category, int> dbAccess1)
+        {
+
+        }
+    }
+}

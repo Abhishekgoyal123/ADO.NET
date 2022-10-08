@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CS_SimpleDataAccess.DataAccess
 {
-     interface IDbAccess<TEntity, in TPk> where TEntity : class
+     public interface IDbAccess<TEntity, in TPk> where TEntity : class
     {
         IEnumerable<TEntity> GetAll();
         TEntity Get(TPk id);
