@@ -60,3 +60,5 @@ static void PrintData(IEnumerable<Category> categories)
 Gateway g1 = new Gateway();
 
 g1.GatewayMethod(new ProductDbAccess());
+
+g1.GatewayMethod(new CategoryDbAccess());
