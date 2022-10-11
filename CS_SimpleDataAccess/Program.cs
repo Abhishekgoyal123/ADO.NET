@@ -11,31 +11,34 @@ Console.WriteLine("hello world");
 
 try
 {
-    ////CategoryDbAccess categoryDbAccess = new CategoryDbAccess();
+    CategoryDbAccess categoryDbAccess = new CategoryDbAccess();
 
-    ////var categories = categoryDbAccess.GetRecords();
+    var categories = categoryDbAccess.GetRecords();
+
+    
     //Report report = new Report();
-    //var res=report.SearchProduct();
-    //for(int i=0;i<res.Count;i+=3)
+    //var res = report.SearchProduct();
+    //for (int i = 0; i < res.Count; i += 3)
     //{
-    //    Console.Write(res[i]+"  ");
+    //    Console.Write(res[i] + "  ");
     //    Console.Write(res[i + 1] + "  ");
     //    Console.Write(res[i + 2]);
     //    Console.WriteLine();
 
     //}
-    //PrintData(categories);
+    PrintData(categories);
 
-    IDbAccess<Product, int> dbAccess = new ProductDbAccess();
+    
+   // IDbAccess<Product, int> dbAccess = new ProductDbAccess();
 
-   var abcd = dbAccess.GetAll();
+   //var abcd = dbAccess.GetAll();
 
-    foreach( var item in abcd)
-    {
-        Console.Write(item.ProductName);
-        Console.WriteLine(" ");
-        Console.WriteLine(item.ProductId);
-    }
+   // foreach( var item in abcd)
+   // {
+   //     Console.Write(item.ProductName);
+   //     Console.WriteLine(" ");
+   //     Console.WriteLine(item.ProductId);
+   // }
 }
 
 catch (Exception ex)
@@ -57,8 +60,3 @@ static void PrintData(IEnumerable<Category> categories)
 
 
 
-Gateway g1 = new Gateway();
-
-g1.GatewayMethod(new ProductDbAccess());
-
-g1.GatewayMethod(new CategoryDbAccess());

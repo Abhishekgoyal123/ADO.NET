@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 
 namespace CS_SimpleDataAccess.DataAccess
 {
+    
     internal class CategoryDbAccess
     {
         public static SqlConnection conn;
@@ -21,6 +22,8 @@ namespace CS_SimpleDataAccess.DataAccess
         public IEnumerable<Category> GetRecords()
         {
             List<Category> records = new List<Category>();
+
+
 
             try
             {
@@ -46,11 +49,11 @@ namespace CS_SimpleDataAccess.DataAccess
 
                     });
                 }
-                Reader.Close();
+                //Reader.Close();
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -62,3 +65,4 @@ namespace CS_SimpleDataAccess.DataAccess
         }
     }
 }
+
