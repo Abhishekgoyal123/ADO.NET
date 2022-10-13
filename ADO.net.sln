@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_Sp", "CS_Sp\CS_Sp.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MARS_PRACTICE", "MARS_PRACTICE\MARS_PRACTICE.csproj", "{DAA0B88E-078E-4997-B25C-1569A06C0037}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_Disconnected", "CS_Disconnected\CS_Disconnected.csproj", "{C0044716-3533-464C-9911-AB439ECCDDC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_Disconnected", "CS_Disconnected\CS_Disconnected.csproj", "{C0044716-3533-464C-9911-AB439ECCDDC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_Dapper", "CS_Dapper\CS_Dapper.csproj", "{F54455BF-9E22-485C-B503-BE073CCABEAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFcore_2", "EFcore_2\EFcore_2.csproj", "{4CC65A4F-85DC-4DCD-B152-A2608C91756D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{C0044716-3533-464C-9911-AB439ECCDDC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0044716-3533-464C-9911-AB439ECCDDC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0044716-3533-464C-9911-AB439ECCDDC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F54455BF-9E22-485C-B503-BE073CCABEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F54455BF-9E22-485C-B503-BE073CCABEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F54455BF-9E22-485C-B503-BE073CCABEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F54455BF-9E22-485C-B503-BE073CCABEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC65A4F-85DC-4DCD-B152-A2608C91756D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC65A4F-85DC-4DCD-B152-A2608C91756D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC65A4F-85DC-4DCD-B152-A2608C91756D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC65A4F-85DC-4DCD-B152-A2608C91756D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

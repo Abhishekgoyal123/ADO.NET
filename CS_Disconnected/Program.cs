@@ -4,10 +4,11 @@ Console.WriteLine("Hello, World!");
 
 DataAccess dataAccess = new DataAccess();
 
-dataAccess.LoadData();
+//dataAccess.LoadData();
 
-dataAccess.Update(10);
+//dataAccess.Update(10);
 
-dataAccess.Delete(10);
+//dataAccess.Delete(10);
 
+dataAccess.relation();
 Console.ReadLine();

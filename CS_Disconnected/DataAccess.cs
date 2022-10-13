@@ -14,14 +14,17 @@ namespace CS_Disconnected
         SqlDataAdapter AdDept, AdEmp;
         DataSet Ds;
         DataRow DrFind;
-        
+        DataColumn ChildColumn;
+        DataColumn ParentColumn;
+
 
         public DataAccess()
         {
 
             Conn = new SqlConnection("Data Source=.;Initial Catalog=eShoppingCodi;Integrated Security=SSPI");
             Ds = new DataSet();
-            LoadData();
+            ParentColumn = new DataColumn();
+           // LoadData();
         }
 
         public void LoadData()
@@ -89,6 +92,26 @@ namespace CS_Disconnected
             // Update
             AdDept.Update(Ds, "Department");
 
+        }
+
+        public void relation()
+        {
+              ParentColumn = Ds.Tables["Department"].Columns["DeptNo"];
+            ChildColumn = Ds.Tables["Employee"].Columns["DeptNo"];
+            DataRelation dataRelation = new DataRelation("ParentChild", ParentColumn, ChildColumn);
+
+            Ds.Relations.Add(dataRelation);
+
+            foreach(DataRow ds1 in Ds.Tables["Department"].Rows)
+            {
+                DataRow[] arr_dataRows = ds1.GetChildRows(dataRelation);
+
+                foreach(var item in arr_dataRows)
+                {
+                    Console.WriteLine(item["DeptNo"]);
+                    Console.WriteLine(item["EmpName"]);
+                }
+            }
         }
     }
 
