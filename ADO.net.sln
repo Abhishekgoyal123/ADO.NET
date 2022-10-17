@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_Disconnected", "CS_Disco
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_Dapper", "CS_Dapper\CS_Dapper.csproj", "{F54455BF-9E22-485C-B503-BE073CCABEAD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFcore_2", "EFcore_2\EFcore_2.csproj", "{4CC65A4F-85DC-4DCD-B152-A2608C91756D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirst_2", "EFcore_2\CodeFirst_2.csproj", "{4CC65A4F-85DC-4DCD-B152-A2608C91756D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Code_First", "Code_First\Code_First.csproj", "{6144A34A-E9DD-4ACB-94A0-FE314E6BDBEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Code_first_1", "Code_first_1\Code_first_1.csproj", "{C6B24B0F-F45C-4F4B-9051-12806FA1D3C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{6144A34A-E9DD-4ACB-94A0-FE314E6BDBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6144A34A-E9DD-4ACB-94A0-FE314E6BDBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6144A34A-E9DD-4ACB-94A0-FE314E6BDBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6B24B0F-F45C-4F4B-9051-12806FA1D3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B24B0F-F45C-4F4B-9051-12806FA1D3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B24B0F-F45C-4F4B-9051-12806FA1D3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B24B0F-F45C-4F4B-9051-12806FA1D3C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

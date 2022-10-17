@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+
 namespace Code_First.Models
 {
     public class Person
@@ -11,7 +12,7 @@ namespace Code_First.Models
         [Key]
         public int PersonUniqueId { get; set; }
         [Required]
-        [StringLength (100)]
+        [StringLength(100)]
         public string PersonId { get; set; }
         [Required]
         [StringLength(400)]
@@ -27,3 +28,5 @@ namespace Code_First.Models
         public string Email { get; set; }
     }
 }
+    
+
