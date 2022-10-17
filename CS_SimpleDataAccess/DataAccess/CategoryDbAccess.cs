@@ -38,6 +38,7 @@ namespace CS_SimpleDataAccess.DataAccess
                 cmd.CommandText = "Select * from Category";
 
                 SqlDataReader Reader = cmd.ExecuteReader();
+               
 
                 while (Reader.Read())
                 {

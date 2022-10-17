@@ -19,6 +19,9 @@ namespace CS_Dapper.DbConnect
         }
 
         public IDbConnection CreateConnection () => new SqlConnection(connStr);
+
+        
     }
+
 
 }

@@ -17,10 +17,10 @@ namespace CS_Disconnected
         DataColumn ChildColumn;
         DataColumn ParentColumn;
 
-
+        
         public DataAccess()
         {
-
+            
             Conn = new SqlConnection("Data Source=.;Initial Catalog=eShoppingCodi;Integrated Security=SSPI");
             Ds = new DataSet();
             ParentColumn = new DataColumn();
