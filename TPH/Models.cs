@@ -11,14 +11,14 @@ namespace TPH
    
         public abstract class ProductionUnit
         {
-            public int Id { get; set; }
+            public int Id { get; set; } 
             public string Name { get; set; }
             public int ReleaseYear { get; set; }
         }
 
         public class Movies : ProductionUnit
         {
-            public string Category { get; set; }
+             public string Category { get; set; } = null!;
             public int PlayDuration { get; set; }
             public double BoxOfficeCollection { get; set; }
         }

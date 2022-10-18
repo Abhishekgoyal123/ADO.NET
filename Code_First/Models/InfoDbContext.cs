@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Code_First.Models;
 
-namespace CS_EF_CodeFirst.Models
+namespace Code_First.Models
 {
     public class InfoDbContext : DbContext
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CS_EF_CodeFirst.Models
+namespace Code_First.Models
 {
     public class Category
     {

@@ -27,7 +27,7 @@ namespace TPH
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Data SOurce=.;Initial Catalog=TPH; Integrated Security=SSPI;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("Data SOurce=.;Initial Catalog=TPH_1; Integrated Security=SSPI;MultipleActiveResultSets=true");
             base.OnConfiguring(optionsBuilder);
         }
 

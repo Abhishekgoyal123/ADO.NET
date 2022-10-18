@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Code_First", "Code_First\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Code_first_1", "Code_first_1\Code_first_1.csproj", "{C6B24B0F-F45C-4F4B-9051-12806FA1D3C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPH", "TPH\TPH.csproj", "{52A4C7F6-ED03-4E15-A892-69855DE57EDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPH_Inheritence", "TPH\TPH_Inheritence.csproj", "{52A4C7F6-ED03-4E15-A892-69855DE57EDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
