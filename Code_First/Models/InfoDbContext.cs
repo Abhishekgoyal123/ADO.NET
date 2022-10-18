@@ -11,7 +11,7 @@ namespace CS_EF_CodeFirst.Models
     {
         public InfoDbContext()
         {
-
+           
         }
         // ENtity Mapping with Table
         public DbSet<Person> Persons { get; set; }
