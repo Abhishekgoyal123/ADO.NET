@@ -24,12 +24,12 @@ namespace EF_Assignment
                        group customer by customer.CustomerId into newTable
                        select new
                        {
-                           id = newTable.Key,
-                           value = newTable.Count()
+                           cusstomer_id = newTable.Key,
+                           order_count = newTable.Count()
                        };
-            foreach (var v in data)
+            foreach (var item in data)
             {
-                Console.WriteLine($"{v.id} {v.value}");
+                Console.WriteLine($"{item.cusstomer_id} {item.order_count}");
             }
         }
 
