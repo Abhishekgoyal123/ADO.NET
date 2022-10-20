@@ -4,4 +4,4 @@ Console.WriteLine("Hello, World!");
 
 DataAccess da = new DataAccess();
 
-da.GetData_2();
+da.getData_5();
