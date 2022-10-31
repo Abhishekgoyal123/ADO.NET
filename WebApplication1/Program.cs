@@ -9,10 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<eShoppingCodiContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("AppConnection"));
+   
 });
 
 
 builder.Services.AddControllers();
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

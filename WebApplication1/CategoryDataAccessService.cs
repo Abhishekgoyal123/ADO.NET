@@ -17,14 +17,32 @@ namespace WebApplication1
         {
             this.context = _context;
         }
-        Task<Category> IDbAccessService<Category, int>.CreateAsync(Category entity)
+        async Task<Category> IDbAccessService<Category, int>.CreateAsync(Category entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = await context.Categories.AddAsync(entity);
+                await context.SaveChangesAsync();
+                return result.Entity;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         Task<bool> IDbAccessService<Category, int>.DeleteAsync(Category entity)
         {
             throw new NotImplementedException();
+        }
+
+       
+        async Task<Category> IDbAccessService<Category, int>.GetAsync(int id)
+        {
+            var record = await context.Categories.FindAsync(id);
+            if (record == null)
+                throw new Exception("Record  not found");
+            return record;
         }
 
         Task<IEnumerable<Category>> IDbAccessService<Category, int>.GetAsync()

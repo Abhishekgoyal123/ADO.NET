@@ -9,7 +9,7 @@ namespace WebApplication1
     public interface IDbAccessService<TEntity, in Tpk> where TEntity : class
     {
         Task<IEnumerable<TEntity>> GetAsync();
-
+        Task<TEntity> GetAsync(Tpk id);
         Task<TEntity> CreateAsync(TEntity entity);
         Task<TEntity> UpdateAsync(Tpk id, TEntity entity);
         Task<bool> DeleteAsync(TEntity entity);
