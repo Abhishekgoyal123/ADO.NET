@@ -7,8 +7,7 @@ using EF_Assignment.Models;
 
 namespace EF_Assignment
 {
-    
-    public class DataAccess
+    public  class DataAccess
     {
         NorthwindContext context;
 
@@ -47,7 +46,7 @@ namespace EF_Assignment
                        };
             foreach (var item in data)
             {
-                Console.WriteLine($"{item.customerName}  {item.orderid}");
+                Console.WriteLine($"{item.customerName}  {item.orderid} ");
             }
         }
 
@@ -81,7 +80,6 @@ namespace EF_Assignment
                        where order.OrderDate >=Start_date && order.OrderDate <= end_date
                        orderby customer.ContactName ascending
                        
-
                        select new
                        {
                            orderid = Orderdetail.OrderId,
@@ -95,7 +93,9 @@ namespace EF_Assignment
 
         }
 
-
-
+        public void getData_4()
+        {
+           
+        }
     }
 }
