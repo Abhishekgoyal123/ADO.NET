@@ -10,7 +10,22 @@ namespace API_1
 
     public class CategoryDataAccessService : IDbAccessService<Category, int> 
     {
+        public Task<Category> CreateAsync(Category entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteAsync(Category entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<Category>> GetAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Category> UpdateAsync(TPK id, Category entity)
         {
             throw new NotImplementedException();
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API_1
+namespace WebApplication1
 {
     public interface IDbAccessService<TEntity, in Tpk> where TEntity : class
     {
