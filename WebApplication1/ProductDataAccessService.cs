@@ -12,18 +12,22 @@ namespace WebApplication1
            
         }
 
-        
         Task<Product> IDbAccessService<Product, int>.CreateAsync(Product entity)
         {
             throw new NotImplementedException();
         }
 
-        Task<bool> IDbAccessService<Product, int>.DeleteAsync(Product entity)
+        Task<bool> IDbAccessService<Product, int>.DeleteAsync(int id)
         {
             throw new NotImplementedException();
         }
 
         Task<IEnumerable<Product>> IDbAccessService<Product, int>.GetAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Product> IDbAccessService<Product, int>.GetAsync(int id)
         {
             throw new NotImplementedException();
         }

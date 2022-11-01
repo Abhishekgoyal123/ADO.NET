@@ -5,18 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using WebApplication1.Models;
 using WebApplication1;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1
 {
-
     public class CategoryDataAccessService : IDbAccessService<Category, int>
     {
         eShoppingCodiContext context;
-
-        public CategoryDataAccessService(eShoppingCodiContext _context)
+        /// <summary>
+        /// Injection. The eShoppingCodiContext instance will be 
+        /// read from DI Container of the Application
+        /// </summary>
+        /// <param name="context"></param>
+        public CategoryDataAccessService(eShoppingCodiContext context)
         {
-            this.context = _context;
+            this.context = context;
         }
+
         async Task<Category> IDbAccessService<Category, int>.CreateAsync(Category entity)
         {
             try
@@ -24,35 +29,60 @@ namespace WebApplication1
                 var result = await context.Categories.AddAsync(entity);
                 await context.SaveChangesAsync();
                 return result.Entity;
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
-        Task<bool> IDbAccessService<Category, int>.DeleteAsync(Category entity)
+        async Task<bool> IDbAccessService<Category, int>.DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var recordToDelete = await context.Categories.FindAsync(id);
+            if (recordToDelete == null) throw new Exception("Record for Delete is not found");
+
+            context.Categories.Remove(recordToDelete);
+            int result = await context.SaveChangesAsync();
+            if (result > 0) return true;
+            else
+            {
+                return false;
+            }
         }
 
-       
+        async Task<IEnumerable<Category>> IDbAccessService<Category, int>.GetAsync()
+        {
+            return await context.Categories.ToListAsync();
+        }
+
         async Task<Category> IDbAccessService<Category, int>.GetAsync(int id)
         {
             var record = await context.Categories.FindAsync(id);
             if (record == null)
                 throw new Exception("Record  not found");
             return record;
+
         }
 
-        Task<IEnumerable<Category>> IDbAccessService<Category, int>.GetAsync()
+        async Task<Category> IDbAccessService<Category, int>.UpdateAsync(int id, Category entity)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                var recordToUpate = await context.Categories.FindAsync(id);
+                if (recordToUpate == null) throw new Exception("Record for Deleteupdate is not found");
 
-        Task<Category> IDbAccessService<Category, int>.UpdateAsync(int id, Category entity)
-        {
-            throw new NotImplementedException();
+                recordToUpate.CategoryName = entity.CategoryName;
+                recordToUpate.BasePrice = entity.BasePrice;
+                await context.SaveChangesAsync();
+                return recordToUpate;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

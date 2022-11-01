@@ -21,11 +21,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPH_Inheritence", "TPH\TPH_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF_Assignment", "EF_Assignment\EF_Assignment.csproj", "{9148F755-5B5A-4BA1-9F82-84965675000B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{E80AFCC8-C8F3-4463-BC71-34C5BF88B3F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{E80AFCC8-C8F3-4463-BC71-34C5BF88B3F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_1", "API_1\API_1.csproj", "{A35B1BE5-B477-427A-9571-7031FF7B8F88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API_1", "API_1\API_1.csproj", "{A35B1BE5-B477-427A-9571-7031FF7B8F88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{ABC5F947-5162-4DC2-AF62-9B08AEF10134}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{ABC5F947-5162-4DC2-AF62-9B08AEF10134}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api_Assignment", "Api_Assignment\Api_Assignment.csproj", "{E17F483D-25AB-4B38-8908-90D180AFD53C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{ABC5F947-5162-4DC2-AF62-9B08AEF10134}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABC5F947-5162-4DC2-AF62-9B08AEF10134}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABC5F947-5162-4DC2-AF62-9B08AEF10134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E17F483D-25AB-4B38-8908-90D180AFD53C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E17F483D-25AB-4B38-8908-90D180AFD53C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E17F483D-25AB-4B38-8908-90D180AFD53C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E17F483D-25AB-4B38-8908-90D180AFD53C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
