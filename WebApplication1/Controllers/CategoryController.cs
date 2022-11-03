@@ -60,29 +60,29 @@ namespace WebApplication1.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
-        [ActionName("assignment")]
-        public async Task<Product> Search(string CategoryName, string ProductName)
-        {
-            eShoppingCodiContext context = new eShoppingCodiContext();
-            Category c1 = new Category();
-            c1.CategoryName = CategoryName;
-            Product P1 = new Product();
-            P1.ProductName = ProductName;
+        //[HttpPost]
+        //[ActionName("assignment")]
+        //public async Task<Product> Search(string CategoryName, string ProductName)
+        //{
+        //    eShoppingCodiContext context = new eShoppingCodiContext();
+        //    Category c1 = new Category();
+        //    c1.CategoryName = CategoryName;
+        //    Product P1 = new Product();
+        //    P1.ProductName = ProductName;
 
-            var record = await context.Categories.FindAsync(CategoryName);
-            var record_1 = await context.Products.FindAsync(ProductName);
+        //    var record = await context.Categories.FindAsync(CategoryName);
+        //    var record_1 = await context.Products.FindAsync(ProductName);
 
-            var abc = from cat in context.Categories
-                      join prod in context.Products on cat.CategoryId equals prod. 
+        //    var abc = from cat in context.Categories
+        //              join prod in context.Products on cat.CategoryId equals prod. 
                       
-                      select cat;
-            if(record != null && record_1 != null)
-                return record_1;
-              else
-                return
+        //              select cat;
+        //    if(record != null && record_1 != null)
+        //        return record_1;
+        //      else
+        //        return
             
             
-        }
+        //}
     }
 }

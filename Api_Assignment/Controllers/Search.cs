@@ -12,9 +12,9 @@ namespace Api_Assignment.Controllers
 
         eShoppingCodiContext context;
 
-        public Search(eShoppingCodiContext context)
+        public Search(eShoppingCodiContext _context)
         {
-            this.context = context;
+            this.context = _context;
         }
         [HttpGet]
         public  IActionResult abcd(string CategoryName, string ProductName)
@@ -44,6 +44,8 @@ namespace Api_Assignment.Controllers
 
             return Ok(abc);
         }
+
+        
     }
 
     
