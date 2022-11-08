@@ -34,15 +34,24 @@ namespace Coditas.Ecomm.Repositories
             }
         }
 
-        Task<Category> IDbRepository<Category, int>.DeleteAsync(int id)
+        async Task<bool> IDbRepository<Category, int>.DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var recordToDelete = await context.Categories.FindAsync(id);
+            if (recordToDelete == null) throw new Exception("Record for Delete is not found");
+
+            context.Categories.Remove(recordToDelete);
+            int result = await context.SaveChangesAsync();
+            if (result > 0) return true;
+            else
+            {
+                return false;
+            }
         }
 
-       async Task<IEnumerable<Category>> IDbRepository<Category, int>.GetAsync()
-        {
-            throw new NotImplementedException();
-        }
+       //async Task<IEnumerable<Category>> IDbRepository<Category, int>.GetAsync()
+       // {
+       //     throw new NotImplementedException();
+       // }
 
        async Task<Category> IDbRepository<Category, int>.GetAsync(int id)
         {
@@ -69,6 +78,8 @@ namespace Coditas.Ecomm.Repositories
 
                 throw ex;
             }
+
+
         }
     }
 }

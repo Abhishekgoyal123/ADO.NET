@@ -1,5 +1,5 @@
 using Coditas.Ecomm.Repositories;
-//using Coditas.EComm.DataAccess;
+using Coditas.EComm.DataAccess;
 using Coditas.EComm.DataAccess.Models;
 using Coditas.EComm.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +13,7 @@ builder.Services.AddDbContext<eShoppingCodiContext>(opt =>
 opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"))
 );
 
-builder.Services.AddScoped<>
+builder.Services.AddScoped<IDbRepository<Category, int>, CategoryRepository>(); 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
