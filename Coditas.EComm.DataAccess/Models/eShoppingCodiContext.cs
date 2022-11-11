@@ -157,17 +157,17 @@ namespace Coditas.EComm.DataAccess.Models
 
                 entity.Property(e => e.SubCategoryId).HasColumnName("Sub_CategoryId");
 
-                entity.HasOne(d => d.Manufacturer)
-                    .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.ManufacturerId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Product__Manufac__2C3393D0");
+                //entity.HasOne(d => d.Manufacturer)
+                //    .WithMany(p => p.Products)
+                //    .HasForeignKey(d => d.ManufacturerId)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__Product__Manufac__2C3393D0");
 
-                entity.HasOne(d => d.SubCategory)
-                    .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.SubCategoryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Product__Sub_Cat__2B3F6F97");
+                //entity.HasOne(d => d.SubCategory)
+                //    .WithMany(p => p.Products)
+                //    .HasForeignKey(d => d.SubCategoryId)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__Product__Sub_Cat__2B3F6F97");
             });
 
             modelBuilder.Entity<SubCategory>(entity =>

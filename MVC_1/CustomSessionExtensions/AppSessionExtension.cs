@@ -14,11 +14,9 @@ namespace MVC_1.CustomSessionExtensions
             var value = session.GetString(key);
 
             if (value == null)
-            {
                 return default(T);
-            }
-            else
-                return JsonSerializer.Deserialize<T>(value);
+            
+            return JsonSerializer.Deserialize<T>(value);
         }
     }
 }

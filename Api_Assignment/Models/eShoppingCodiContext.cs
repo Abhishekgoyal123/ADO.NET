@@ -28,11 +28,11 @@ namespace Api_Assignment.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-//            if (!optionsBuilder.IsConfigured)
-//            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//                optionsBuilder.UseSqlServer("Data Source=.; Initial Catalog =eShoppingCodi; Integrated Security =SSPI;");
-//            }
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=.; Initial Catalog =eShoppingCodi; Integrated Security =SSPI;");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -155,17 +155,17 @@ namespace Api_Assignment.Models
 
                 entity.Property(e => e.SubCategoryId).HasColumnName("Sub_CategoryId");
 
-                entity.HasOne(d => d.Manufacturer)
-                    .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.ManufacturerId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Product__Manufac__2C3393D0");
+                //entity.HasOne(d => d.Manufacturer)
+                //    .WithMany(p => p.Products)
+                //    .HasForeignKey(d => d.ManufacturerId)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__Product__Manufac__2C3393D0");
 
-                entity.HasOne(d => d.SubCategory)
-                    .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.SubCategoryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Product__Sub_Cat__2B3F6F97");
+                //entity.HasOne(d => d.SubCategory)
+                //    .WithMany(p => p.Products)
+                //    .HasForeignKey(d => d.SubCategoryId)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__Product__Sub_Cat__2B3F6F97");
             });
 
             modelBuilder.Entity<SubCategory>(entity =>

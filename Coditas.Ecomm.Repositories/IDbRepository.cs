@@ -9,7 +9,7 @@ namespace Coditas.Ecomm.Repositories
 {
     public interface IDbRepository<TEntity, in Tpk> where TEntity : class
     {
-        //Task<IEnumerable<TEntity>> GetAsync();
+        Task<IEnumerable<TEntity>> GetAsync();
 
         Task<TEntity> GetAsync(Tpk id);
 
@@ -17,6 +17,6 @@ namespace Coditas.Ecomm.Repositories
 
         Task<TEntity> UpdateAsync(Tpk id, TEntity entity);
 
-        Task<bool> DeleteAsync(Tpk id);
+        Task<TEntity> DeleteAsync(Tpk id);
     }
 }

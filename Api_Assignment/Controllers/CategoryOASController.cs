@@ -24,22 +24,30 @@ namespace Api_Assignment.Controllers
             //this.subcategoryService = subcategoryService;
         }
 
+        //public async Task<IEnumerable<Category>> Get()
+        //{
+        //    var result = await catDbAccess.GetAsync();
+        //    return result;
+        //}
+
+        [HttpGet("/getcategoties")]
         public async Task<IEnumerable<Category>> Get()
         {
             var result = await catDbAccess.GetAsync();
             return result;
         }
 
-        [HttpGet("/SearchProduct")]
+        [HttpGet("/searchProduct")]
 
-        public async Task<IEnumerable<Product>> Search(string categoryName)
+        public async Task<IEnumerable<Product>> SearchProduct(string CategoryName)
         {
             var result = (from product in context.Products
-                         join subcategory in context.SubCategories on product.SubCategoryId equals subcategory.SubCategoryId
-                         join category in context.Categories on subcategory.CategoryId equals category.CategoryId
-                         where category.CategoryName == categoryName
-                         select product).ToList();
+                          join subcategory in context.SubCategories on product.SubCategoryId equals subcategory.SubCategoryId
+                          join category in context.Categories on subcategory.CategoryId equals category.CategoryId
+                          where category.CategoryName == CategoryName
+                          select product).ToList();
 
+        
             return result;
         }
 

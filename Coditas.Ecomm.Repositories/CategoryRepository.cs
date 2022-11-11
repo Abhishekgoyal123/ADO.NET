@@ -7,6 +7,7 @@ using Coditas.Ecomm.Repositories;
 using Coditas.EComm.DataAccess;
 using Coditas.EComm.DataAccess.Models;
 using Coditas.EComm.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Coditas.Ecomm.Repositories
 {
@@ -34,26 +35,29 @@ namespace Coditas.Ecomm.Repositories
             }
         }
 
-        async Task<bool> IDbRepository<Category, int>.DeleteAsync(int id)
+        async Task<Category> IDbRepository<Category, int>.DeleteAsync(int id)
         {
-            var recordToDelete = await context.Categories.FindAsync(id);
-            if (recordToDelete == null) throw new Exception("Record for Delete is not found");
-
-            context.Categories.Remove(recordToDelete);
-            int result = await context.SaveChangesAsync();
-            if (result > 0) return true;
-            else
+            try
             {
-                return false;
+                var record = await context.Categories.FindAsync(id);
+                if (record == null)
+                    throw new Exception($"The Record with Category Id {id} is Missing");
+                context.Categories.Remove(record);
+                await context.SaveChangesAsync();
+                return record;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
-       //async Task<IEnumerable<Category>> IDbRepository<Category, int>.GetAsync()
-       // {
-       //     throw new NotImplementedException();
-       // }
+        //async Task<IEnumerable<Category>> IDbRepository<Category, int>.GetAsync()
+        // {
+        //     throw new NotImplementedException();
+        // }
 
-       async Task<Category> IDbRepository<Category, int>.GetAsync(int id)
+        async Task<Category> IDbRepository<Category, int>.GetAsync(int id)
         {
             var record = await context.Categories.FindAsync(id);
             if (record == null)
@@ -61,7 +65,12 @@ namespace Coditas.Ecomm.Repositories
             return record;
         }
 
-       async Task<Category> IDbRepository<Category, int>.UpdateAsync(int id, Category entity)
+        async Task<IEnumerable<Category>> IDbRepository<Category, int>.GetAsync()
+        {
+            return await context.Categories.ToListAsync();
+        }
+
+        async Task<Category> IDbRepository<Category, int>.UpdateAsync(int id, Category entity)
         {
             try
             {

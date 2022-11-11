@@ -17,7 +17,7 @@ namespace Coditas.EComm.Entities
         public int SubCategoryId { get; set; }
         public int ManufacturerId { get; set; }
 
-        public virtual Manufacturer Manufacturer { get; set; } = null!;
-        public virtual SubCategory SubCategory { get; set; } = null!;
+        //public virtual Manufacturer Manufacturer { get; set; } = null!;
+        //public virtual SubCategory SubCategory { get; set; } = null!;
     }
 }

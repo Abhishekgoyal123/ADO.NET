@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVCCore_OAS3Client.Models;
 using System.Diagnostics;
-
+using MVCCore_OAS3Client;
+using Cli
 namespace MVCCore_OAS3Client.Controllers
 {
     public class HomeController : Controller
@@ -9,14 +10,14 @@ namespace MVCCore_OAS3Client.Controllers
         private readonly ILogger<HomeController> _logger;
         HttpClient client = null;
         string baseUrl = string.Empty;
-        //ClientProxy proxy = null;
+        ClientProxy proxy = null;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            baseUrl = "";
+            baseUrl = "https://localhost:7157";
             client = new HttpClient();
-            //proxy = new ClientProxy(baseUrl, client);
+            proxy = new ClientProxy(baseUrl, client);
         }
 
         public IActionResult Index()

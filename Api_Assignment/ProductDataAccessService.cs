@@ -10,7 +10,7 @@ namespace Api_Assignment
         public ProductDataAccessService(eShoppingCodiContext _context)
         {
             this.context = _context;
-           
+
         }
 
         Task<Product> IDbAccessService<Product, int>.CreateAsync(Product entity)
@@ -36,6 +36,20 @@ namespace Api_Assignment
         Task<Product> IDbAccessService<Product, int>.UpdateAsync(int id, Product entity)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Product>> Search(string CategoryName)
+        {
+            var result = (from product in context.Products
+                          join subcategory in context.SubCategories on product.SubCategoryId equals subcategory.SubCategoryId
+                          join category in context.Categories on subcategory.CategoryId equals category.CategoryId
+                          where category.CategoryName == CategoryName
+                          select product).ToList();
+
+
+
+            return result;
+
         }
     }
 }

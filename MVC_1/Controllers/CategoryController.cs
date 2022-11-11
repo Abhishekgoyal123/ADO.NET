@@ -16,18 +16,37 @@ namespace MVC_1.Controllers
             this.catRepo = catRepo;
         }
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    var records = await catRepo.GetAsync();
-        //    return View(records);
-        //}
-        
+        public async Task<IActionResult> Index()
+        {
+            var records = await catRepo.GetAsync();
+            return View(records);
+        }
+
+
+        public async Task<IActionResult> Create()
+        {
+            var category = new Category();
+            return View(category);
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(Category category)
         {
-            var response = await catRepo.CreateAsync(category);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                var respose = await catRepo.CreateAsync(category);
+                if (category.BasePrice < 0)
+                    throw new Exception("Base Price Cannot be -ve");
+                // Return to Index Action Method in Same
+                // Controller
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // Stay on Same View
+                // THis will Show Error Messages
+                return View(category);
+            }
         }
 
         [HttpPost]
@@ -50,9 +69,11 @@ namespace MVC_1.Controllers
 
         public async Task<IActionResult> ShowDetails(int id)
         {
-            
-
             HttpContext.Session.SetInt32("CategoryId", id);
+
+            var category = await catRepo.GetAsync(id);
+            HttpContext.Session.SetObject<Category>("Cat", category);
+            return RedirectToAction("Index", "Product");
         }
     }
 }

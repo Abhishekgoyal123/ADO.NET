@@ -2,8 +2,10 @@ using Coditas.Ecomm.Repositories;
 using Coditas.EComm.DataAccess;
 using Coditas.EComm.DataAccess.Models;
 using Coditas.EComm.Entities;
+using Coditas.EComm.Repositories;
 using Microsoft.EntityFrameworkCore;
 using MVC_1;
+using MVC_1.CustomFilters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +15,25 @@ builder.Services.AddDbContext<eShoppingCodiContext>(opt =>
 opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"))
 );
 
-builder.Services.AddScoped<IDbRepository<Category, int>, CategoryRepository>(); 
+builder.Services.AddScoped<IDbRepository<Category, int>, CategoryRepository>();
+builder.Services.AddScoped<IDbRepository<Product, int>, ProductRepository>();
+
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+   // options.Filters.Add(typeof(CustomLogRequestAttribute));
+    // REgister the Exception Filter
+    options.Filters.Add(typeof(AppExceptionAttribute));
+});
+
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(20);
+
+});
+
 
 var app = builder.Build();
 
@@ -35,6 +53,8 @@ app.UseStaticFiles();
 
 // create load and execute route table for mvc controller routing to execute an action method of a controller class. 
 app.UseRouting();
+
+app.UseSession();
 
 // used in role based security
 app.UseAuthorization();
