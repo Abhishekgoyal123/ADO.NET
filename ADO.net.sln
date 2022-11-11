@@ -35,11 +35,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer_Api", "Consumer_Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC_1", "MVC_1\MVC_1.csproj", "{30D95FDF-1182-4890-941B-94D36F725018}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coditas.EComm.DataAccess", "Coditas.EComm.DataAccess\Coditas.EComm.DataAccess.csproj", "{D7FA6083-4CF4-42EF-AD20-A916204F6BC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coditas.EComm.DataAccess", "Coditas.EComm.DataAccess\Coditas.EComm.DataAccess.csproj", "{D7FA6083-4CF4-42EF-AD20-A916204F6BC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coditas.EComm.Entities", "Coditas.EComm.Entities\Coditas.EComm.Entities.csproj", "{BF5B5B46-D41A-4D21-A510-6555E907C6B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coditas.EComm.Entities", "Coditas.EComm.Entities\Coditas.EComm.Entities.csproj", "{BF5B5B46-D41A-4D21-A510-6555E907C6B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coditas.Ecomm.Repositories", "Coditas.Ecomm.Repositories\Coditas.Ecomm.Repositories.csproj", "{3F55C87A-C83E-40DF-985A-501F40C576D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coditas.Ecomm.Repositories", "Coditas.Ecomm.Repositories\Coditas.Ecomm.Repositories.csproj", "{3F55C87A-C83E-40DF-985A-501F40C576D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCCore_OAS3Client", "MVCCore_OAS3Client\MVCCore_OAS3Client.csproj", "{FE772651-408B-4F87-B67D-3C03768E3EB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{3F55C87A-C83E-40DF-985A-501F40C576D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F55C87A-C83E-40DF-985A-501F40C576D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F55C87A-C83E-40DF-985A-501F40C576D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE772651-408B-4F87-B67D-3C03768E3EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE772651-408B-4F87-B67D-3C03768E3EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE772651-408B-4F87-B67D-3C03768E3EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE772651-408B-4F87-B67D-3C03768E3EB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

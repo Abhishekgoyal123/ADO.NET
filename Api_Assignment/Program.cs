@@ -22,7 +22,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IDbAccessService<Category, int>, CategoryDataAccessService>();
-//builder.Services.AddScoped<IDbAccessService<Product, int>, ProductDataAccessService>();
+builder.Services.AddScoped<IDbAccessService<Product, int>, ProductDataAccessService>();
 
 
 var app = builder.Build();

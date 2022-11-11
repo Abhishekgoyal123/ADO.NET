@@ -3,6 +3,7 @@ using Coditas.Ecomm.Repositories;
 using Coditas.EComm.DataAccess;
 using Coditas.EComm.DataAccess.Models;
 using Coditas.EComm.Entities;
+using MVC_1.CustomSessionExtensions;
 
 namespace MVC_1.Controllers
 {
@@ -45,6 +46,13 @@ namespace MVC_1.Controllers
         {
             var abc = await catRepo.DeleteAsync(id);
 
+        }
+
+        public async Task<IActionResult> ShowDetails(int id)
+        {
+            
+
+            HttpContext.Session.SetInt32("CategoryId", id);
         }
     }
 }
