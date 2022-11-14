@@ -143,7 +143,7 @@ namespace Coditas.EComm.DataAccess.Models
                     .HasMaxLength(500)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ManufacturerId).HasColumnName("Manufacturer_Id");
+               // entity.Property(e => e.ManufacturerId).HasColumnName("Manufacturer_Id");
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
 
@@ -157,11 +157,11 @@ namespace Coditas.EComm.DataAccess.Models
 
                 entity.Property(e => e.SubCategoryId).HasColumnName("Sub_CategoryId");
 
-                //entity.HasOne(d => d.Manufacturer)
-                //    .WithMany(p => p.Products)
-                //    .HasForeignKey(d => d.ManufacturerId)
-                //    .OnDelete(DeleteBehavior.ClientSetNull)
-                //    .HasConstraintName("FK__Product__Manufac__2C3393D0");
+                entity.HasOne(d => d.Manufacturer)
+                    .WithMany(p => p.Products)
+                    .HasForeignKey(d => d.ManufacturerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Product__Manufac__2C3393D0");
 
                 //entity.HasOne(d => d.SubCategory)
                 //    .WithMany(p => p.Products)
@@ -178,11 +178,11 @@ namespace Coditas.EComm.DataAccess.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Category)
-                    .WithMany(p => p.SubCategories)
-                    .HasForeignKey(d => d.CategoryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__SubCatego__Categ__267ABA7A");
+                //entity.HasOne(d => d.Category)
+                //    .WithMany(p => p.SubCategories)
+                //    .HasForeignKey(d => d.CategoryId)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__SubCatego__Categ__267ABA7A");
             });
 
             modelBuilder.Entity<Test>(entity =>

@@ -3,6 +3,7 @@ using MVC_Client.Models;
 using System.Diagnostics;
 using ClientNS;
 using System.Text.Json;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MVC_Client.Controllers
 {
@@ -23,29 +24,34 @@ namespace MVC_Client.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //var result = await proxy.GetcategotiesAsync();
-            //var Cat = new Category()
-            //{
-            //    CategoryId = 4005,
-            //    CategoryName = "MyCat",
-            //    BasePrice = 30
-            //};
-            ////var result = await proxy.GetcategotiesAsync();
+            var x = TempData["CategoryId"];
 
-            //ViewBag.Categories = JsonSerializer.Serialize(result);
-            //return View();
-            var result = await proxy.SearchProductAsync("food");
+            var product = new Product();
+            
+            List<Category> categories = (await proxy.GetcategotiesAsync()).ToList();
+
+            List<SelectListItem> categoryItem = new List<SelectListItem>();
+            
+            foreach (var cat in categories)
+            {
+                categoryItem.Add(new SelectListItem(cat.CategoryName, cat.CategoryId.ToString()));
+            }
+            
+            ViewBag.Categories = categoryItem;
+
+
+            var result = await proxy.SearchProductAsync("Fashion");
             ViewBag.Categories = JsonSerializer.Serialize(result);
             return View(result);
-            //return View(result);
+            
         }
 
-        public async Task<IActionResult> Search()
-        {
-            var result = await proxy.SearchProductAsync("food");
-           return View(result);
+        //public async Task<IActionResult> Search()
+        //{
+        //    var result = await proxy.SearchProductAsync("food");
+        //   return View(result);
 
-        }
+        //}
 
         public IActionResult Privacy()
         {

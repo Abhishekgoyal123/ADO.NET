@@ -37,14 +37,28 @@ namespace MVC_1.Controllers
                 var respose = await catRepo.CreateAsync(category);
                 if (category.BasePrice < 0)
                     throw new Exception("Base Price Cannot be -ve");
-                // Return to Index Action Method in Same
-                // Controller
+
+                TempData["Category"] = category;
+                TempData["CategoryName"] = category.CategoryName;
+                TempData["BasePrice"] = category.BasePrice;
+                ViewBag.category = TempData["Category"];
+                
+                //if (TempData.Keys.Count > 0)
+                //{
+                int CategoryId = Convert.ToInt32(TempData["CategoryId"]);
+                string CategoryName = Convert.ToString(TempData["CategoryName"]);
+                int basePrice = Convert.ToInt32(TempData["BasePrice"]);
+
+                var cat = HttpContext.Session.GetObject<Category>("Cat");
+
+               
+                //}
+                TempData.Keep("CategoryName");
                 return RedirectToAction("Index");
+                TempData.Keep("CategoryName");
             }
             else
             {
-                // Stay on Same View
-                // THis will Show Error Messages
                 return View(category);
             }
         }
@@ -69,7 +83,8 @@ namespace MVC_1.Controllers
 
         public async Task<IActionResult> ShowDetails(int id)
         {
-            HttpContext.Session.SetInt32("CategoryId", id);
+           // HttpContext.Session.SetInt32("CategoryId", id);
+            TempData["CategoryId"] = id;
 
             var category = await catRepo.GetAsync(id);
             HttpContext.Session.SetObject<Category>("Cat", category);

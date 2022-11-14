@@ -9,7 +9,7 @@ namespace Coditas.EComm.Entities
     {
         public Category()
         {
-            SubCategories = new HashSet<SubCategory>();
+            //SubCategories = new HashSet<SubCategory>();
         }
 
         [Required(ErrorMessage = "Category id is required")]
@@ -21,6 +21,6 @@ namespace Coditas.EComm.Entities
         [Required(ErrorMessage = "Category base price is required")]
         public decimal BasePrice { get; set; }
 
-        public virtual ICollection<SubCategory> SubCategories { get; set; }
+        public virtual ICollection<SubCategory>? SubCategories { get; set; }
     }
 }

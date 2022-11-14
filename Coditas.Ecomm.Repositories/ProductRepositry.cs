@@ -80,8 +80,9 @@ namespace Coditas.EComm.Repositories
                     throw new Exception($"The Record with Product Unique Id {id} is Missing");
                 record.ProductName = entity.ProductName;
                 record.ProductId = entity.ProductId;
-               // record.Manufacturer = entity.Manufacturer;
-               // record.Description = entity.Description;
+                record.ManufacturerId = entity.ManufacturerId;
+                
+                // record.Description = entity.Description;
                 record.SubCategoryId = entity.SubCategoryId;
                 record.Price = entity.Price;
                 await _context.SaveChangesAsync();

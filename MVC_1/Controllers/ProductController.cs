@@ -22,15 +22,12 @@ namespace MVC_1.Controllers
         public async Task<IActionResult> Index()
         {
             IEnumerable<Product> records = null;
+
             try
             {
-                // REad CategoryId from Session
-                //   int CategoryId = Convert.ToInt32( HttpContext.Session.GetInt32("CategoryId"));
-
-
-                // REading Data from TempData
-                if (TempData.Keys.Count > 0)
-                {
+                
+                //if (TempData.Keys.Count > 0)
+                //{
                     int CategoryId = Convert.ToInt32(TempData["CategoryId"]);
 
 
@@ -44,10 +41,9 @@ namespace MVC_1.Controllers
                     {
                         records = (await prdRepo.GetAsync()).Where(p => p.SubCategoryId == CategoryId).ToList();
                     }
-                }
+                //}
 
-                // INform the Service to Maintain The TempData with
-                // either all keys or a Specific Key
+
                 TempData.Keep();
 
                 return View(records);
@@ -67,36 +63,35 @@ namespace MVC_1.Controllers
             List<Category> categories = (await catRepo.GetAsync()).ToList();
 
             List<SelectListItem> categoryItem = new List<SelectListItem>();
-            // Add Data from "categories" to "categoryItem"
+            
             foreach (var cat in categories)
             {
                 categoryItem.Add(new SelectListItem(cat.CategoryName, cat.CategoryId.ToString()));
             }
-            // USe ViewBag to pass Data to UI
+            
             ViewBag.Categories = categoryItem;
-
+            
             return View(product);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(Product product)
-        {
+        //[HttpPost]
+        //public async Task<IActionResult> Create(Product product)
+        //{
 
-            if (ModelState.IsValid)
-            {
-                var respose = await prdRepo.CreateAsync(product);
+        //    if (ModelState.IsValid)
+        //    {
+        //        var respose = await prdRepo.CreateAsync(product);
 
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                // Stay on Same View
-                // THis will Show Error Messages
-                return View(product);
-            }
+        //        return RedirectToAction("Index");
+        //    }
+        //    else
+        //    {
+        //        // Stay on Same View
+        //        // THis will Show Error Messages
+        //        return View(product);
+        //    }
 
-
-        }
+        //}
 
         public async Task<IActionResult> Edit(int id)
         {
@@ -105,20 +100,20 @@ namespace MVC_1.Controllers
             return View(record);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Edit(int id, Product product)
-        {
-            try
-            {
-                var result = await prdRepo.UpdateAsync(id, product);
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
+        //[HttpPost]
+        //public async Task<IActionResult> Edit(int id, Product product)
+        //{
+        //    //try
+        //    //{
+        //        var result = await prdRepo.UpdateAsync(id, product);
+        //        return RedirectToAction("Index");
+        //    //}
+        //    //catch (Exception ex)
+        //    //{
 
-                throw;
-            }
-        }
+        //    //    throw;
+        //    //}
+        //}
 
     }
 }

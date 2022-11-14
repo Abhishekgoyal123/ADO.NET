@@ -28,9 +28,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.SubCategoryId)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.ManufacturerId)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -50,9 +50,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            @*<td>
+            <td>
                 @Html.DisplayFor(modelItem => item.SubCategoryId)
-            </td>*@
+            </td>
             
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

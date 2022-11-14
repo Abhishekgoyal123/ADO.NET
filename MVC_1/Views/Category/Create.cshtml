@@ -2,9 +2,12 @@
 
 @{
     ViewData["Title"] = "Create";
+
+    var catagoriesList = (List<SelectListItem>)ViewBag.category;
 }
 
 <h1>Create</h1>
+
 
 <h4>Category</h4>
 <hr />
@@ -15,6 +18,8 @@
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
                 <input asp-for="CategoryId" class="form-control" />
+                @*<select class="form-control" asp-for="CategoryId"*@
+                 @*asp-items="@CategoryI"></select>*@
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
             <div class="form-group">
