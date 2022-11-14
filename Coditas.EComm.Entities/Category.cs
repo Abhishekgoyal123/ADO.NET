@@ -21,6 +21,6 @@ namespace Coditas.EComm.Entities
         [Required(ErrorMessage = "Category base price is required")]
         public decimal BasePrice { get; set; }
 
-        public virtual ICollection<SubCategory>? SubCategories { get; set; }
+        //public virtual ICollection<SubCategory>? SubCategories { get; set; }
     }
 }

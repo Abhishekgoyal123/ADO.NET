@@ -26,41 +26,33 @@ namespace MVC_1.Controllers
         public async Task<IActionResult> Create()
         {
             var category = new Category();
+            if (HttpContext.Session.GetObject<Category>("Store") != null)
+            {
+                category = HttpContext.Session.GetObject<Category>("Store");
+                ViewBag.ErrorMessage = HttpContext.Session.GetString("ErrorMessage");
+            }
+            HttpContext.Session.Clear();
             return View(category);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Category category)
+        public async Task<IActionResult> Create(Category cat)
         {
             if (ModelState.IsValid)
             {
-                var respose = await catRepo.CreateAsync(category);
-                if (category.BasePrice < 0)
-                    throw new Exception("Base Price Cannot be -ve");
-
-                TempData["Category"] = category;
-                TempData["CategoryName"] = category.CategoryName;
-                TempData["BasePrice"] = category.BasePrice;
-                ViewBag.category = TempData["Category"];
-                
-                //if (TempData.Keys.Count > 0)
-                //{
-                int CategoryId = Convert.ToInt32(TempData["CategoryId"]);
-                string CategoryName = Convert.ToString(TempData["CategoryName"]);
-                int basePrice = Convert.ToInt32(TempData["BasePrice"]);
-
-                var cat = HttpContext.Session.GetObject<Category>("Cat");
-
-               
-                //}
-                TempData.Keep("CategoryName");
+                if (cat.BasePrice < 0)
+                {
+                    HttpContext.Session.SetObject<Category>("Store", cat);
+                    HttpContext.Session.SetString("ErrorMessage", "DO NOT ENTER NEGATIVE VALUE FOR BASE PRICE");
+                    throw new Exception("DO NOT ENTER NEGATIVE VALUE FOR BASE PRICE");
+                }
+                var response = await catRepo.CreateAsync(cat);
                 return RedirectToAction("Index");
-                TempData.Keep("CategoryName");
             }
             else
-            {
-                return View(category);
-            }
+
+                return View(cat);
+
         }
 
         [HttpPost]
@@ -79,11 +71,12 @@ namespace MVC_1.Controllers
         {
             var abc = await catRepo.DeleteAsync(id);
 
+
         }
 
         public async Task<IActionResult> ShowDetails(int id)
         {
-           // HttpContext.Session.SetInt32("CategoryId", id);
+            // HttpContext.Session.SetInt32("CategoryId", id);
             TempData["CategoryId"] = id;
 
             var category = await catRepo.GetAsync(id);
@@ -92,3 +85,4 @@ namespace MVC_1.Controllers
         }
     }
 }
+

@@ -6,6 +6,7 @@ using Coditas.EComm.Repositories;
 using Microsoft.EntityFrameworkCore;
 using MVC_1;
 using MVC_1.CustomFilters;
+using MVC_Apps.CustomFilters;
 
 var builder = WebApplication.CreateBuilder(args);
 

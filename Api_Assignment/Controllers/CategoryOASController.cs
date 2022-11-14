@@ -46,8 +46,7 @@ namespace Api_Assignment.Controllers
                           join category in context.Categories on subcategory.CategoryId equals category.CategoryId
                           where category.CategoryName == CategoryName
                           select product).ToList();
-
-        
+            
             return result;
         }
 
