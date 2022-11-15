@@ -26,9 +26,9 @@ namespace MVC_1.Controllers
         public async Task<IActionResult> Create()
         {
             var category = new Category();
-            if (HttpContext.Session.GetObject<Category>("Store") != null)
+            if (HttpContext.Session.GetObject<Category>("Session") != null)
             {
-                category = HttpContext.Session.GetObject<Category>("Store");
+                category = HttpContext.Session.GetObject<Category>("Session");
                 ViewBag.ErrorMessage = HttpContext.Session.GetString("ErrorMessage");
             }
             HttpContext.Session.Clear();
@@ -43,8 +43,8 @@ namespace MVC_1.Controllers
                 if (cat.BasePrice < 0)
                 {
                     HttpContext.Session.SetObject<Category>("Store", cat);
-                    HttpContext.Session.SetString("ErrorMessage", "DO NOT ENTER NEGATIVE VALUE FOR BASE PRICE");
-                    throw new Exception("DO NOT ENTER NEGATIVE VALUE FOR BASE PRICE");
+                    HttpContext.Session.SetString("ErrorMessage", "base price cannot be -ve");
+                    throw new Exception("base price cannot be -ve");
                 }
                 var response = await catRepo.CreateAsync(cat);
                 return RedirectToAction("Index");

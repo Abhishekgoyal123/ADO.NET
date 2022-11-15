@@ -1,16 +1,42 @@
-﻿@model Coditas.EComm.Entities.Category
-
+﻿@model List<ClientNS.Category>
 @{
-    ViewData["Title"] = "Create";
-    
-
-    var catagoriesList = (List<SelectListItem>)ViewBag.Categories;
+    ViewData["Title"] = "Index";
 }
-
-<div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <@*input asp-for="CategoryId" class="form-control" />*@
-                <select class="form-control" asp-for="CategoryId"
-                 asp-items="@catagoriesList"></select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
+<h1>Category List </h1>
+<h3>List of Categories</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                CategoryId
+            </th>
+        </tr>
+    </thead>
+   <form  asp-controller="Home" asp-action="Search" method="get">
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <div class="form-group">
+                <input asp-for="@item.CategoryId" type="radio" name="id" value="@item.CategoryId"/>@item.CategoryName
+                <br/>
             </div>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td><input type="submit" value="Submit Form" /></td>
+    </tr>
+</form>
+</table>
+<hr/>
+
+
+
+
+
+
+
+
+
+
+

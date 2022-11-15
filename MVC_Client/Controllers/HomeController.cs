@@ -24,41 +24,34 @@ namespace MVC_Client.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var x = TempData["CategoryId"];
+            //var x = TempData["CategoryId"];
 
-            var product = new Product();
+            //var product = new Product();
             
-            List<Category> categories = (await proxy.GetcategotiesAsync()).ToList();
+            var result = (await proxy.GetcategotiesAsync()).ToList();
 
-            List<SelectListItem> categoryItem = new List<SelectListItem>();
+            //List<SelectListItem> categoryItem = new List<SelectListItem>();
             
-            foreach (var cat in categories)
-            {
-                categoryItem.Add(new SelectListItem(cat.CategoryName, cat.CategoryId.ToString()));
-            }
+            //foreach (var cat in categories)
+            //{
+            //    categoryItem.Add(new SelectListItem(cat.CategoryName, cat.CategoryId.ToString()));
+            //}
             
-            ViewBag.Categories = categoryItem;
+            //ViewBag.Categories = categoryItem;
 
 
             //var result = await proxy.SearchProductAsync("Fashion");
             //ViewBag.Categories = JsonSerializer.Serialize(result);
-            return View();
+            return View(result);
             
         }
 
-        public async Task<IActionResult> Search(CategorySearchModel categorySearchModel)
+        public async Task<IActionResult> Search()
         {
-            TempData["Id"] = categorySearchModel.Categoryid;
-            return RedirectToAction("ShowProduct", "Search");
-            //var result = await proxy.SearchProductAsync("food");
-            //return View(result);
+            var result = await proxy.SearchProductAsync("Fashion");
+            ViewBag.Categories = JsonSerializer.Serialize(result);
+            return View(result);
 
-        }
-        public async Task<IActionResult> ShowProduct()
-        {
-            int id = (int)TempData["Id"];
-            var products = (await proxy.SearchProductAsync()).ToList().Where(prd => prd.CategoryId == id).ToList();
-            return View(products);
         }
 
         public IActionResult Privacy()
