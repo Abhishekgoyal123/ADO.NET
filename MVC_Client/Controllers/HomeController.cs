@@ -24,26 +24,9 @@ namespace MVC_Client.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //var x = TempData["CategoryId"];
-
-            //var product = new Product();
-            
             var result = (await proxy.GetcategotiesAsync()).ToList();
 
-            //List<SelectListItem> categoryItem = new List<SelectListItem>();
-            
-            //foreach (var cat in categories)
-            //{
-            //    categoryItem.Add(new SelectListItem(cat.CategoryName, cat.CategoryId.ToString()));
-            //}
-            
-            //ViewBag.Categories = categoryItem;
-
-
-            //var result = await proxy.SearchProductAsync("Fashion");
-            //ViewBag.Categories = JsonSerializer.Serialize(result);
             return View(result);
-            
         }
 
         public async Task<IActionResult> Search()

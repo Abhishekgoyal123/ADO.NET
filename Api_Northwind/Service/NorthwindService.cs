@@ -12,16 +12,23 @@ namespace Api_Northwind.Service
             this.context = context; 
         }
 
-       List<Customer> IService<Customer>.Search1(string productName)
+        List<Customer> IService<Customer>.Search1(string abc)
         {
-            var abc = (from Product in context.Products
-                       join orderDetail in context.OrderDetails on Product.ProductId equals orderDetail.ProductId
-                       join order in context.Orders on orderDetail.OrderId equals order.OrderId
-                       join customer in context.Customers on order.CustomerId equals customer.CustomerId
-                       where Product.ProductName == productName
-                       select customer).ToList();
-            return abc;
+            throw new NotImplementedException();
         }
+
+        //List<Customer> IService<Customer>.Search1(string productName)
+        // {
+        //     var abc = (from Product in context.Products
+        //                join orderDetail in context.OrderDetails on Product.ProductId equals orderDetail.ProductId
+        //                join order in context.Orders on orderDetail.OrderId equals order.OrderId
+        //                join customer in context.Customers on order.CustomerId equals customer.CustomerId
+        //                where Product.ProductName == productName
+        //                select customer).ToList();
+        //     return abc;
+        // }
+
+
     }
 
     

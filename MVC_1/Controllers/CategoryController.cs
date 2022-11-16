@@ -42,7 +42,7 @@ namespace MVC_1.Controllers
             {
                 if (cat.BasePrice < 0)
                 {
-                    HttpContext.Session.SetObject<Category>("Store", cat);
+                    HttpContext.Session.SetObject<Category>("Session", cat);
                     HttpContext.Session.SetString("ErrorMessage", "base price cannot be -ve");
                     throw new Exception("base price cannot be -ve");
                 }

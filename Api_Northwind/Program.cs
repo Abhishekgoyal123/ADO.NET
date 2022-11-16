@@ -17,6 +17,8 @@ builder.Services.AddScoped<IService<Customer>, NorthwindService>();
 
 
 builder.Services.AddControllers();
+
+builder.Services.AddMemoryCache();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

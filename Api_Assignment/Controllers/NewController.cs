@@ -17,20 +17,30 @@ namespace Api_Assignment.Controllers
             this.context = context;
         }
 
-        //[HttpGet]
-        //public IActionResult Index(string SubCategoryName, int noOfRecords)
-        //{
-        //    List<Product> productList = new List<Product>();
-        //   productList = (from prod in context.Products
-        //                  join subcat in context.SubCategories on prod.SubCategoryId equals subcat.SubCategoryId
-        //                  join cat in context.Categories on subcat.CategoryId equals cat.CategoryId
-        //                  where subcat.SubCategoryName == SubCategoryName
+        [HttpPost]
+        public IEnumerable<Product> Index(string SubCategoryName, int noOfRecords)
+        {
+            IEnumerable<Product> a;
+            List<Product> productList = new List<Product>();
+            productList = (from prod in context.Products
+                           join subcat in context.SubCategories on prod.SubCategoryId equals subcat.SubCategoryId
+                           join cat in context.Categories on subcat.CategoryId equals cat.CategoryId
+                           where subcat.SubCategoryName == SubCategoryName
 
-        //                  select prod).ToList();
+                           select prod).ToList();
 
-            
+            int abc = productList.Count();
 
-               
-        //}
+            if(abc > noOfRecords)
+            {
+                 a = productList.Take(noOfRecords).Skip(abc - noOfRecords);
+            }
+            else
+            {
+                 a = productList.Take(abc);
+            }
+            return a;
+
+        }
     }
 }
