@@ -2,6 +2,7 @@
 using Api_Northwind.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Api_Northwind.Controllers
@@ -13,7 +14,7 @@ namespace Api_Northwind.Controllers
         IMemoryCache memoryCache;
         IService<Customer> catservice;
         NorthwindContext context;
-        private string cacheKey = "Categories";
+        private string cacheKey = "Shippers";
 
         public NorthwindCacheController(IMemoryCache memoryCache, IService<Customer> catservice, NorthwindContext context)
         {
@@ -35,6 +36,7 @@ namespace Api_Northwind.Controllers
                 if (!isDataAvailableInCache)
                 {
                     customerList = context.CustomersEmployeesShippers.ToList();
+                    response.CustomersEmployeesShipper = customerList;
                     response.Message = "Data is received from Database";
 
                     var memoryCacheOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(30)).SetAbsoluteExpiration(TimeSpan.FromMinutes(1));
@@ -42,7 +44,7 @@ namespace Api_Northwind.Controllers
                 }
                 else
                 {
-                    response.
+                    response.CustomersEmployeesShipper = customerList;
                     response.Message = "Data is received from cache";
                 }
 

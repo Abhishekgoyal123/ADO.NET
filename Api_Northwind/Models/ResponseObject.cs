@@ -16,5 +16,7 @@
         public Employee? Employee { get; set; }
 
         public Shipper? Shipper { get; set; }
+
+        public List<CustomersEmployeesShipper>? CustomersEmployeesShipper { get; set; }   
     }
 }
