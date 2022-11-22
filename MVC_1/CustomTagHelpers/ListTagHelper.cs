@@ -4,7 +4,7 @@ using Coditas.EComm.Entities;
 
 namespace MVC_1.CustomTagHelpers
 {
-    public class ListTagHelper : TagHelper
+    public class listgenerator : TagHelper
     {
         public IEnumerable<Category> categories { get; set; }
         public IEnumerable<Object> objectList { get; set; }
@@ -27,27 +27,23 @@ namespace MVC_1.CustomTagHelpers
         //    output.PreContent.SetHtmlContent(table);
         //}
 
-        public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
-        {
-            output.TagName = "List";
+        //public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+        //{
+        //    output.TagName = "List";
 
-            output.TagMode = TagMode.StartTagAndEndTag;
+        //    output.TagMode = TagMode.StartTagAndEndTag;
 
-            var table = "<table class ='table table-bordered table-striped table-dark'>";
+        //    var table = "<table class ='table table-bordered table-striped table-dark'>";
 
-            var a = objectList.GetType();
-
-           
-
-            foreach(var item in objectList)
-            {
-               if(a == Category)
-                {
-                    
-                }
-            }
+        //    var a = objectList.GetType();
+             
+        //    foreach(var item in objectList)
+        //    {
+                
+             
+        //    }
             
 
-        }
+        //}
     }
 }

@@ -17,7 +17,7 @@ namespace Api_Assignment.Controllers
             this.context = _context;
         }
         [HttpGet]
-        public  IActionResult abcd(string CategoryName, string ProductName)
+        public IActionResult abcd(string CategoryName, string ProductName)
         {
             //eShoppingCodiContext context = new eShoppingCodiContext();
 
@@ -45,9 +45,81 @@ namespace Api_Assignment.Controllers
             return Ok(abc);
         }
 
-        
-    }
+        [HttpGet("/SearchAssignment")]
 
-    
+        public IActionResult SearchAssignment(string abc)
+        {
+            string ram;
+           
+            string[] ramArray = null;
+            //string[] manufacturerNameArray = null;
+            //string number = "123456789 ";
+            IQueryable<Product> result = null;
+            if (!abc.Contains(" "))
+            {
+
+            }
+            else
+            {
+               // if(abc.Contains(number))
+                string[] test = abc.Split(" ");
+                //string [] q = test[1].Split("");
+                for(int i = 0; i < test.Length; i++)
+                {
+                    if (test[i].Contains("GB"))
+                    {
+                       ramArray = test[i].Split("GB");
+                    }
+                }
+                
+                result = from prod in context.Products
+                             join manufacture in context.Manufacturers on prod.ManufacturerId equals manufacture.ManufacturerId
+                             where (prod.ProductName == test[0] && prod.Descrition.Contains(ramArray[1])) || (prod.ProductName == test[0] && manufacture.ManufacturerName == test[1]) 
+
+                             select prod;
+
+            }
+
+
+            return Ok(result);             
+        }
+
+        [HttpGet("/search1")]
+        public IActionResult Search1(string abc)
+        {
+            IQueryable<Product> result = null;
+           // Product p = new Product();
+            List<Product> resultList = new List<Product>();
+            
+            string[] arr = abc.Split(" ");
+
+            result = from prod in context.Products
+                     join manufacture in context.Manufacturers on prod.ManufacturerId equals manufacture.ManufacturerId
+                     select prod
+                     ;
+                     
+            
+            for (int i = 0; i < arr.Length; i++)
+            {
+                
+                foreach (var item in result)
+                {
+                    
+                    if (item.ProductName.Contains(arr[i]) || item.Descrition.Contains(abc[i]))
+                    {
+                        resultList.Add(item);
+                        
+                    }
+                }
+
+            }
+            
+            //resultList.Sort( m => m.ProductName=="");
+           
+            return Ok(resultList.Distinct());
+           // return Ok(result);       
+        }
+
+    }
 
 }

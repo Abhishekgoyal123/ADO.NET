@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using MVC_1;
 using MVC_1.CustomFilters;
 using MVC_Apps.CustomFilters;
+using Microsoft.AspNetCore.Identity;
+using MVC_1.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,14 @@ builder.Services.AddDbContext<eShoppingCodiContext>(opt =>
 
 opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"))
 );
+
+builder.Services.AddDbContext<SecurityDbContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("SecurityDbContextConnection"));
+});
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<SecurityDbContext>();
 
 builder.Services.AddScoped<IDbRepository<Category, int>, CategoryRepository>();
 builder.Services.AddScoped<IDbRepository<Product, int>, ProductRepository>();
@@ -56,6 +66,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseSession();
+app.UseAuthentication();;
 
 // used in role based security
 app.UseAuthorization();

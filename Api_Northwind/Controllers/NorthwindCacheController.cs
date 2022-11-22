@@ -11,6 +11,9 @@ namespace Api_Northwind.Controllers
     [ApiController]
     public class NorthwindCacheController : ControllerBase
     {
+        string a = "sd";
+        string b = "dsd";
+        string c = a + b;
         IMemoryCache memoryCache;
         IService<Customer> catservice;
         NorthwindContext context;
