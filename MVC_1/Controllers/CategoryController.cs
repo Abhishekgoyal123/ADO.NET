@@ -4,9 +4,11 @@ using Coditas.EComm.DataAccess;
 using Coditas.EComm.DataAccess.Models;
 using Coditas.EComm.Entities;
 using MVC_1.CustomSessionExtensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVC_1.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         IDbRepository<Category, int> catRepo;

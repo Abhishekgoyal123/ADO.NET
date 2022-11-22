@@ -23,7 +23,12 @@ builder.Services.AddDbContext<SecurityDbContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("SecurityDbContextConnection"));
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+// AdddDefaultIdentity<IdentityUser>() for the user based authentication.
+// SignIn.RequireConfirmedAccount = false the email must be verified.
+// AddEntityFrameworkStores<SecurityDbContext>(); read users iformation using EF core
+
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<SecurityDbContext>();
 
 builder.Services.AddScoped<IDbRepository<Category, int>, CategoryRepository>();
@@ -78,5 +83,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();
