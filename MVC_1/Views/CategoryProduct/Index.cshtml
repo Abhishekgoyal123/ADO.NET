@@ -5,7 +5,10 @@
 }
 <h1>SubCategory ---- Product List</h1>
 <h3>List of Subategories</h3>
-<table class="table table-bordered table-striped">
+
+
+@if(@ViewBag.ID==null){
+    <table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>
@@ -40,60 +43,8 @@
         }
     </tbody>
 </table>
-<hr />
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>
-                ProductUniqueId
-            </th>
-            <th>
-                ProductId
-            </th>
-            <th>
-                ProductName
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Price
-            </th>
-            <th>
-                SubCategoryId
-            </th>
-            <th>
-                Manufacturer
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Item2)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductUniqueId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descrition)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SubCategoryId)
-                </td>
-               
-            </tr>
-        }
-    </tbody>
-</table>
+}
+
 
 
 

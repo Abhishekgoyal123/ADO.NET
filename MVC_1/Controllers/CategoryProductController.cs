@@ -71,6 +71,7 @@ namespace MVC_Apps.Controllers
             Tuple<List<Category>, List<Product>> tuple = null;
 
             categories = (await catRepo.GetAsync()).ToList();
+            ViewBag.ID = id;
 
             if (id == null || id == 0)
             {

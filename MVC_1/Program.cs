@@ -28,8 +28,10 @@ builder.Services.AddDbContext<SecurityDbContext>(option =>
 // AddEntityFrameworkStores<SecurityDbContext>(); read users iformation using EF core
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<SecurityDbContext>();
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+//    .AddEntityFrameworkStores<SecurityDbContext>();
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>( options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<SecurityDbContext>().AddDefaultUI();
 
 builder.Services.AddScoped<IDbRepository<Category, int>, CategoryRepository>();
 builder.Services.AddScoped<IDbRepository<Product, int>, ProductRepository>();
@@ -44,6 +46,7 @@ builder.Services.AddControllersWithViews(options =>
 
 builder.Services.AddDistributedMemoryCache();
 
+builder.Services.AddRazorPages();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(20);
