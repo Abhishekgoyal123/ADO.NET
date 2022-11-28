@@ -95,8 +95,7 @@ namespace Api_Assignment.Controllers
 
             result = from prod in context.Products
                      join manufacture in context.Manufacturers on prod.ManufacturerId equals manufacture.ManufacturerId
-                     select prod
-                     ;
+                     select prod;
                      
             
             for (int i = 0; i < arr.Length; i++)

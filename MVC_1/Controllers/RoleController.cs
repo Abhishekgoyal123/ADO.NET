@@ -78,7 +78,6 @@ namespace MVC_1.Controllers
         }
 
         [HttpPost]
-
         public async Task<IActionResult> AssignRoleToUser(UserInRole userInRole)
         {
             if(userInRole == null || userInRole.UserId == null ||userInRole.RoleId == null)
@@ -116,7 +115,6 @@ namespace MVC_1.Controllers
                 // Also Pass ViewBag for USers and Roles 
                 return View(new UserInRole());
             }
-
             var result = await userManager.AddToRoleAsync(UserExist, RoleExist.Name);
 
             if (result.Succeeded)

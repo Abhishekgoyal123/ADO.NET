@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MVC_1.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class CategoryController : Controller
     {
         IDbRepository<Category, int> catRepo;
@@ -18,13 +18,14 @@ namespace MVC_1.Controllers
             this.catRepo = catRepo;
         }
 
+        [Authorize(Policy ="ReadPolicy")]
         public async Task<IActionResult> Index()
         {
             var records = await catRepo.GetAsync();
             return View(records);
         }
 
-
+        [Authorize(Roles ="Manager")]
         public async Task<IActionResult> Create()
         {
             var category = new Category();

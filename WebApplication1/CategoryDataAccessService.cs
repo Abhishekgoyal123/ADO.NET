@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using WebApplication1.Models;
 using WebApplication1;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication1
 {
+    
     public class CategoryDataAccessService : IDbAccessService<Category, int>
     {
         eShoppingCodiContext context;

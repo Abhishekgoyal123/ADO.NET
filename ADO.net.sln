@@ -43,6 +43,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coditas.Ecomm.Repositories"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC_Client", "MVC_Client\MVC_Client.csproj", "{DE6F6FD9-0582-4991-8D60-F9D7D205A868}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_ViewBasedAuthorization", "MVC_ViewBasedAuthorization\MVC_ViewBasedAuthorization.csproj", "{CEC02DDF-B9D9-41C4-B664-DEFD1BAF6CCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{DE6F6FD9-0582-4991-8D60-F9D7D205A868}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE6F6FD9-0582-4991-8D60-F9D7D205A868}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE6F6FD9-0582-4991-8D60-F9D7D205A868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEC02DDF-B9D9-41C4-B664-DEFD1BAF6CCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC02DDF-B9D9-41C4-B664-DEFD1BAF6CCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC02DDF-B9D9-41C4-B664-DEFD1BAF6CCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC02DDF-B9D9-41C4-B664-DEFD1BAF6CCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

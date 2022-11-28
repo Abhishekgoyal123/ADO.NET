@@ -9,14 +9,13 @@ using MVC_1.CustomFilters;
 using MVC_Apps.CustomFilters;
 using Microsoft.AspNetCore.Identity;
 using MVC_1.Data;
+using MVC_1.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddDbContext<eShoppingCodiContext>(opt =>
 
-opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"))
-);
+opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
 
 builder.Services.AddDbContext<SecurityDbContext>(option =>
 {
@@ -44,6 +43,19 @@ builder.Services.AddControllersWithViews(options =>
     options.Filters.Add(typeof(AppExceptionAttribute));
 });
 
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ReadPolicy", policy =>
+    {
+        policy.RequireRole("Manager");
+    });
+    options.AddPolicy("CreatePolicy", policy =>
+    {
+        policy.RequireRole("User");
+    });
+});
+
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddRazorPages();
@@ -52,7 +64,6 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(20);
 
 });
-
 
 var app = builder.Build();
 
